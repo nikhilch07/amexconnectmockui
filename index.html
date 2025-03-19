@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amex Connect</title>
+    <link href="./index.css" rel="stylesheet"/>
+    <link href="https://www.aexp-static.com/cdaas/one/statics/axp-dls/6.14.0/package/dist/6.14.0/styles/dls.min.css"
+          rel="stylesheet"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<div class="test-page height-full" id="amex-container">
+    <div class="flex flex-column height-full">
+        <header class="flex flex-justify-center flex-align-center pad-responsive border-b dls-white-bg" role="banner">
+            <span class="amex-logo flex flex-column">
+                <img src="https://www.aexp-static.com/cdaas/one/statics/axp-static-assets/2.17.0/package/dist/img/logos/dls-logo-line.svg"
+                     alt="American Express">
+            </span>
+        </header>
+        <div id="error-messages">
+            <div class="centred-div flex-container" id="login_load" style="display: none">
+                <h3>We are generating authorization.
+                    This might take a moment...
+                </h3>
+                <div class="progress-circle progress-indeterminate"></div>
+            </div>
+            <div class="centred-div flex-container" id="partner_load">
+                <h3>We are processing your request.
+                    Redirecting you the partner site...
+                </h3>
+                <div class="progress-circle progress-indeterminate"></div>
+            </div>
+            <div class="centred-div flex-container" id="invalid_code" style="display: none">
+                <h3>Amazon Authorization code is required for login.
+                </h3>
+                <a href="#" onclick="generateURL()">Generate URL</a>
+            </div>
+            <div class="centred-div flex-container" id="system_error" style="display: none">
+                <h3>System Error ! We cannot process this request :\</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border centred-div" id="partner-login" style="display: none">
+    <form id="form-user-example" class="form-has-warning">
+        <div class="pad-responsive alert dls-red flex flex-align-center" role="alert">
+            <h2>Partner Login</h2>
+        </div>
+        <hr>
+        <div class="pad-responsive stack">
+            <div>
+                <label class="label-3" for="partner_user">User ID</label>
+                <input type="text" id="partner_user" class="form-control" value="" onchange="onInputChange()"/>
+            </div>
+            <div>
+                <label class="label-3" for="partner_pass">Password</label>
+                <input type="password" id="partner_pass" class="form-control" onchange="onInputChange()"/>
+            </div>
+            <div>
+                <button type="button" id="a-eg1-submit" class="btn fluid margin-auto-lr" onclick="getHMAC()"
+                        disabled><span id="a-eg1-submit-text" class>Log In</span>
+                </button>
+                <button type="button" id="cancel-btn" class="btn fluid margin-auto-lr margin-1-t" onclick="userCancelled()">
+                    <span id="cancel-text" class>Cancel</span>
+                </button>
+                <div class="flex flex-justify-between margin-1-t">
+                    <button type="button" id="app-redirect" class="btn fluid margin-1-r" onclick="appRedirect()"
+                            disabled><span class>App Redirect</span>
+                    </button>
+                    <button type="button" id="connect-redirect" class="btn fluid" onclick="connectRedirect()"
+                            disabled><span class>Connect Redirect</span>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <p>Provisioning-Id: <span id="provision-id"></span></p>
+                <p>X-Request-ID : <span id="request-id"></span></p>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="./index.js"></script>
+</body>
+</html>

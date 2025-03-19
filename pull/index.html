@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Partner</title>
+    <link href="./index.css" rel="stylesheet"/>
+    <link href="https://www.aexp-static.com/cdaas/one/statics/axp-dls/6.14.0/package/dist/6.14.0/styles/dls.min.css"
+          rel="stylesheet"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<div class="height-full" id="amex-container">
+    <div class="flex flex-column height-full">
+        <header class="flex flex-justify-center flex-align-center pad-responsive border-b dls-white-bg" role="banner">
+            <h1>Choose how you link your card</h1>
+        </header>
+        <div id="card-container">
+            <div class="centered-div flex-container">
+                <h4>Quickly link the cards issued by your bank</h4>
+                <ul class="margin-3-t card-list">
+                    <li>
+                        <button id="amex-btn" class="flex flex-justify-between flex-align-center pad-1 dls-gray-02-bg-hvr" onclick="initiatePull()">
+                            <div class="dls-bright-blue-bg pad-1-t pad-1-l">
+                                <span class="dls-logo-stack-lg margin-1-b"><img src="https://www.aexp-static.com/cdaas/one/statics/axp-static-assets/2.24.1/package/dist/img/logos/dls-logo-stack-white.svg" alt="American Express"></span>
+                            </div>
+                            <span class="icon icon-hover dls-icon-right"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <div class="flex flex-column">
+                            <h2 class="margin-auto-lr margin-2-t">Switch Service</h2>
+                        <div class="toggle-container">
+                            <span class="switch-service">UI</span>
+                        <label class="toggle" value="Switch Env">
+                            <input type="checkbox" id="toggleButtonUI">
+                            <span class="slider round"></span>
+                        </label>
+                        <span id="statusIndicatorUI" class="margin-1-l">ECP</span>
+
+                    </div>
+                        <div class="toggle-container">
+                            <span class="switch-service">API</span>
+                            <label class="toggle" value="Switch Env">
+                                <input type="checkbox" id="toggleButtonAPI">
+                                <span class="slider round"></span>
+                            </label>
+                            <span id="statusIndicatorAPI" class="margin-1-l">ECP</span>
+                        </div>
+                            <div class="toggle-container">
+                                <span class="switch-service">APPSL-APIs</span>
+                                <label class="toggle" value="Switch Env">
+                                    <input type="checkbox" id="toggleButtonAPPSL">
+                                    <span class="slider round"></span>
+                                </label>
+                                <span id="statusIndicatorAPPSL" class="margin-1-l">ECP</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="./index.js"></script>
+<script src="../index.js"></script>
+</body>
+</html>
+

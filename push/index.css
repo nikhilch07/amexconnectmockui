@@ -1,0 +1,210 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.body {
+    font-family: Helvetica Neue, Helvetica, sans-serif;
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+}
+
+.test-page {
+    width: 100%;
+}
+
+.item-card-container {
+    padding: 0.625rem;
+    width: 28.75rem;
+    min-height: 21.875rem;
+}
+
+.logo {
+    height: 40px;
+}
+
+#settings {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #settings {
+        top: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    #settings {
+        top: 10px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+#paypalPayButton, #amazonPayButton {
+    color: rgb(255, 255, 255);
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    cursor: pointer;
+    min-width: 11.25rem;
+    max-width: 17.5rem;
+    touch-action: manipulation;
+    display: inline-block;
+    font-weight: normal;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 0.8125rem 1.875rem;
+    margin: 0px;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    overflow: hidden;
+    transition: color 0.2s ease-in-out 0s, background-color, border-color;
+}
+
+.wallet-text {
+    width: 100%;
+    padding: 1.875rem 6.25rem 0 6.25rem;
+    font-family: BentonSans, "Helvetica Neue", Helvetica, sans-serif;
+    line-height: 2.375rem;
+    text-align: center;
+}
+
+.wallet-header {
+    font-weight: 300;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+svg {
+    font-size: 1.375rem;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+textarea {
+    height: 100px;
+    width: 100%;
+    box-sizing: border-box
+}
+
+#overlay-div {
+    z-index: 1000;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .75);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.overlay-inner-div {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#partners {
+    margin-right: 10px;
+}
+
+.centred-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-div {
+    position: absolute;
+    top: 40%;
+    left: 46%;
+    transform: translate(-46%, -50%);
+    width: 90%;
+}
+
+.flex-container {
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+    display: flex;
+}
+
+@media only screen and (max-width: 375px) {
+    .card {
+        height: 100% !important;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (min-width: 376px) {
+    .card {
+        height: 450px !important;
+        width: 375px !important;
+    }
+}
+
+#error-messages{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+#app-redirect, #connect-redirect {
+    min-width: unset;
+    padding: .5rem .25rem;
+}
