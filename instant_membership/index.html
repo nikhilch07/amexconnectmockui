@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instant Membership</title>
+    <link href="./index.css" rel="stylesheet"/>
+    <link href="https://www.aexp-static.com/cdaas/one/statics/axp-dls/6.14.0/package/dist/6.14.0/styles/dls.min.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+<div id="overlay-div" class="overlay-div" style="display:none;">
+    <p class="overlay-inner-div"
+       style="font-size:16px;font-weight: bold; line-height:25px;">
+        In progress...<br/>
+    </p>
+</div>
+
+<div class="test-page height-full">
+    <div class="flex flex-column height-full">
+        <header class="flex flex-justify-center flex-align-center pad-responsive border-b dls-white-bg" role="banner">
+            <span class="amex-logo flex flex-column">
+                <img src="https://www.aexp-static.com/cdaas/one/statics/axp-static-assets/2.17.0/package/dist/img/logos/dls-logo-line.svg" alt="American Express">
+            </span>
+            <button id="settings">
+                <svg class="dls-bright-blue" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m27.772-4.3414e-12c1.5992 0 2.8998 1.3011 2.8998 2.9008v2.0387c0.71031 0.24951 1.4057 0.53868 2.0843 0.86606l1.4444-1.4439c1.1022-1.0967 3.0069-1.0942 4.1021 4.9777e-4l5.3363 5.3353c0.54861 0.54861 0.85019 1.2768 0.85019 2.0516-9.955e-4 0.77529-0.30258 1.5035-0.85118 2.0511l-1.4434 1.4429c0.32738 0.67807 0.61706 1.374 0.86606 2.0833h2.0397c1.5992 0 2.8998 1.3006 2.8998 2.8998v7.5456c0 1.5992-1.3006 2.9008-2.8998 2.9008h-2.0407c-0.24901 0.70833-0.53868 1.4038-0.86606 2.0823l1.4454 1.4454c1.1309 1.1309 1.1309 2.9702 0 4.1011l-5.3363 5.3353c-1.0575 1.0585-3.0406 1.0605-4.1011 0l-1.4454-1.4444c-0.67757 0.32738-1.374 0.61706-2.0833 0.86507v2.0416c7.1e-6 1.5992-1.3006 2.9008-2.8998 2.9008h-7.5456c-1.5992 0-2.8998-1.3016-2.8998-2.9008v-2.0416c-0.70733-0.24801-1.4038-0.5367-2.0833-0.86507l-1.4454 1.4454c-1.0952 1.0952-3.0049 1.0962-4.1012 9.925e-4l-5.3358-5.3363c-1.1299-1.1299-1.1304-2.9702-9.9554e-4 -4.1011l1.4449-1.4454c-0.32738-0.67757-0.61656-1.373-0.86557-2.0823h-2.0397c-1.5997 0-2.9008-1.3016-2.9008-2.9008v-7.5456c0-1.5997 1.3011-2.9008 2.9008-2.9008h2.0387c0.24901-0.70882 0.53819-1.4052 0.86606-2.0843l-1.4434-1.4439c-0.54761-0.54663-0.8497-1.2748-0.8497-2.0501 0-0.7748 0.30159-1.503 0.8492-2.0511l5.3353-5.3348c1.056-1.0585 3.0411-1.0605 4.1011 0l1.4434 1.4434c0.67857-0.32787 1.375-0.61706 2.0853-0.86606v-2.0387c0-1.5997 1.3006-2.9008 2.8998-2.9008h7.5456zm-0.14782 3.0476h-7.2499v3.0049c0 0.67956-0.45039 1.2773-1.1042 1.4648-1.2411 0.35615-2.4444 0.85614-3.5764 1.4856-0.59226 0.32986-1.3353 0.22966-1.8184-0.25397l-2.128-2.128-5.1264 5.1264 2.128 2.128c0.48114 0.48114 0.58531 1.2227 0.25446 1.8174-0.63094 1.1354-1.1309 2.3393-1.4861 3.5773-0.1875 0.65327-0.78521 1.1037-1.4648 1.1037h-3.0049v7.2519h3.0059c0.67956 0 1.2773 0.45039 1.4648 1.1042 0.35565 1.2391 0.85515 2.4414 1.4856 3.5734 0.33134 0.59424 0.22768 1.3373-0.25397 1.8184l-2.1294 2.1289 5.1279 5.1279 2.1299-2.1299c0.48016-0.48313 1.2232-0.58531 1.8174-0.25496 1.1389 0.63293 2.3412 1.1329 3.5744 1.4851 0.65475 0.1875 1.1051 0.78471 1.1051 1.4653v3.0079h7.2499v-3.0079c0-0.67956 0.45039-1.2778 1.1042-1.4653 1.2401-0.35515 2.4424-0.85416 3.5744-1.4841 0.59226-0.33234 1.3353-0.22917 1.8184 0.25397l2.1299 2.1289 5.1279-5.1269-2.1289-2.1289c-0.48114-0.48114-0.58531-1.2222-0.25496-1.8165 0.62996-1.1349 1.1299-2.3393 1.4871-3.5783 0.18849-0.65277 0.78471-1.1022 1.4643-1.1022h3.0049v-7.2509h-3.0049c-0.67956 0-1.2768-0.44989-1.4643-1.1032-0.35714-1.2406-0.85713-2.4439-1.4861-3.5764-0.33135-0.59474-0.22718-1.3373 0.25397-1.8184l2.1289-2.128-5.1289-5.1274-2.1289 2.1289c-0.48313 0.48114-1.2262 0.58283-1.8184 0.25347-1.1309-0.62946-2.3343-1.1295-3.5764-1.4856-0.65277-0.1875-1.1032-0.78521-1.1032-1.4648v-3.0049zm-3.624 13.333c4.2078 0 7.619 3.4111 7.619 7.619s-3.4111 7.619-7.619 7.619c-4.2078 0-7.619-3.4111-7.619-7.619s3.4111-7.619 7.619-7.619zm0 3.0476c-2.5207 0-4.5714 2.0507-4.5714 4.5714s2.0507 4.5714 4.5714 4.5714c2.5207 0 4.5714-2.0507 4.5714-4.5714s-2.0507-4.5714-4.5714-4.5714z"/>
+                </svg>
+            </button>
+        </header>
+        <div class="pad-2-t dls-gray-01-bg height-full">
+            <div class="wallet-text pad-2-b">
+                <h1 class="wallet-header margin-0 pad-1-b dls-deep-blue">
+                    Now add your Card to these digital wallets and start using it online and in-store where accepted.
+                </h1>
+                <p class="dls-gray-06 display-none">Use your Card online and in-store anywhere digital wallets are accepted</p>
+            </div>
+            <div class="flex flex-column flex-align-content-stretch flex-align-items-stretch text-align-center pad-responsive-lr">
+                <div class="flex flex-justify-center flex-align-center flex-column-md-down pad-2-t dls-gray-01-bg">
+                    <div class="item-card-container">
+                        <div class="flex">
+                            <div class="card card-relative pad-responsive dls-white-bg border">
+                                <header class="text-align-center margin-1-t margin-b">
+                                    <div class="flex-inline ">
+                                        <img class="logo" src="./pp_h_rgb.png" alt="PayPal pay logo">
+                                    </div>
+                                </header>
+                                <div class="text-align-center margin-3-b pad-1-lr">
+                                    <p class="margin-0 body-1">Click "Add to PayPal" to easily add your Card to your PayPal account.</p>
+                                </div>
+                                <div class="text-align-center flex-justify-center">
+                                    <div class="pad-3-t pad-2-b" style="min-height:100px;">
+                                        <button id="paypalPayButton" class="margin-auto-lr dls-bright-blue-bg" type="button" >
+                                            <div role="progressbar" aria-label="Progress Circle" class="display-none"></div>
+                                            <span class="">Add to PayPal</span>
+                                        </button>
+                                        <span id="paypalSuccess" style="display: none;color: green;font-size: 1rem;font-weight: bold">
+                                            You have succesfully linked your account to Paypal.
+                                        </span>
+                                        <span id="paypalError" style="display: none;color: indianred;font-size: 1rem;font-weight: bold">
+                                            Something went wrong. Please try again.
+                                        </span>
+                                    </div>
+                                    <div class="pad-1-b">
+                                        <a href="https://www.americanexpress.com/us/services/amex-card-on-file/frequently-asked-questions/" class="display-inline-block icon-hover dls-bright-blue css-0" target="_blank">
+                                            <span class="pad-1-r">About connecting your Card</span>
+                                            <span class="pad-1-b" aria-hidden="true">
+                                                <svg viewBox="0 0 48 48" width="1em" height="1em">
+                                                    <path d="M36 42a3 3 0 01-3 3H6a3 3 0 01-3-3V15a3 3 0 013-3h6V6a3 3 0 013-3h27a3 3 0 013 3v27a3 3 0 01-3 3h-6v6zm6-36H15v27h27V6zm-7.5 6a1.5 1.5 0 011.493 1.356L36 13.5V22a1.5 1.5 0 01-2.993.144L33 22v-4.88l-9.44 9.44a1.5 1.5 0 01-2.007.103l-.114-.103a1.5 1.5 0 01-.103-2.007l.103-.114 9.44-9.44H26a1.5 1.5 0 01-1.493-1.356L24.5 13.5a1.5 1.5 0 011.356-1.493L26 12h8.5zM15 36a3 3 0 01-3-3V15H6v27h27v-6H15z"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-card-container">
+                        <div class="flex">
+                            <div class="card card-relative pad-responsive dls-white-bg border">
+                                <header class="text-align-center margin-1-t margin-b">
+                                    <div class="flex-inline ">
+                                        <img class="logo" src="./Amazon_Logo.svg" alt="Amazon logo">
+                                    </div>
+                                </header>
+                                <div class="text-align-center margin-3-b pad-1-lr">
+                                    <p class="margin-0 body-1">Click "Add to Amazon" to easily add your Card to your Amazon account.</p>
+                                </div>
+                                <div class="text-align-center flex-justify-center">
+                                    <div class="pad-3-t pad-2-b" style="min-height:100px;">
+                                        <button id="amazonPayButton" class="margin-auto-lr dls-cobrand-amazon-bg" type="button" >
+                                            <div role="progressbar" aria-label="Progress Circle" class="display-none"></div>
+                                            <span class="">Add to Amazon</span>
+                                        </button>
+                                        <span id="amazonSuccess" style="display: none;color: green;font-size: 1rem;font-weight: bold">
+                                            You have succesfully linked your account to Amazon.
+                                        </span>
+                                        <span id="amazonError" style="display: none;color: indianred;font-size: 1rem;font-weight: bold">
+                                            Something went wrong. Please try again.
+                                        </span>
+                                    </div>
+                                    <div class="pad-1-b">
+                                        <a href="https://www.americanexpress.com/us/services/amex-card-on-file/frequently-asked-questions/" class="display-inline-block icon-hover dls-bright-blue css-0" target="_blank">
+                                            <span class="pad-1-r">About connecting your Card</span>
+                                            <span class="pad-1-b" aria-hidden="true">
+                                                <svg viewBox="0 0 48 48" width="1em" height="1em">
+                                                    <path d="M36 42a3 3 0 01-3 3H6a3 3 0 01-3-3V15a3 3 0 013-3h6V6a3 3 0 013-3h27a3 3 0 013 3v27a3 3 0 01-3 3h-6v6zm6-36H15v27h27V6zm-7.5 6a1.5 1.5 0 011.493 1.356L36 13.5V22a1.5 1.5 0 01-2.993.144L33 22v-4.88l-9.44 9.44a1.5 1.5 0 01-2.007.103l-.114-.103a1.5 1.5 0 01-.103-2.007l.103-.114 9.44-9.44H26a1.5 1.5 0 01-1.493-1.356L24.5 13.5a1.5 1.5 0 011.356-1.493L26 12h8.5zM15 36a3 3 0 01-3-3V15H6v27h27v-6H15z"></path>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="top-row">
+            <label for="partners">Choose a partner:</label>
+            <select name="partners" id="partners">
+                <option value="PAYPAL">PayPal</option>
+                <option value="AMAZON">Amazon</option>
+            </select>
+            <label for="setupBtn">Generate URL:</label>
+            <button class="btn btn-sm" id="setupBtn">Initate Account Setup</button>
+            <span class="switch-service">Hydra Switch</span>
+            <label class="toggle" value="Switch Env">
+                <input type="checkbox" id="toggleButton">
+                <span class="slider round"></span>
+            </label>
+            <span id="statusIndicator" class="margin-1-l">ECP</span>
+        </div>
+        <span>OR</span>
+        <p>Enter the redirection URL : </p>
+        <textarea id="url"></textarea>
+        <p>Enter jwe : </p>
+        <textarea id="jwe"></textarea>
+        <p>Enter aat : </p>
+        <textarea id="aat"></textarea>
+        <div class="flex flex-align-center flex-justify-between">
+            <button id="continue" class="btn btn-sm margin-2-r">Continue</button>
+            <div class="checkbox">
+                <input id="closeUiOnError" type="checkbox" name="example-checkbox"/>
+                <label for="closeUiOnError">Close Connect UI on Error</label>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="./index.js"></script>
+</body>
+</html>
