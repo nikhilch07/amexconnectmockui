@@ -149,9 +149,9 @@ function provisionInitiation() {
     request.url = `https://${host}${epass}.aexp.com/payments/digital/v1/connect/account/provision/initiation`;
     request.body = {
       workflowId: "amzn1.abc.1.wflow.partner-id.293bca8c-96f7-462c-a29a-8eb00db7a512",
-      redirectUrl: `https://github.com/nikhilch07/amexconnectmockui/?env=sandbox&flow=pull&partner=${partner}`,
+      redirectUrl: `https://nikhilch07.github.io/amexconnectmockui/?env=sandbox&flow=pull&partner=${partner}`,
       failureUrl: "https://www.amazon.com/hp/abc/failed-provision?wid=amzn1.abc.1.wflow.partner-id.293bca8c-96f7-462c-a29a-8eb00db7a512",
-      cancelUrl: "https://github.com/nikhilch07/amexconnectmockui/pull/?env=e2",
+      cancelUrl: "https://nikhilch07.github.io/amexconnectmockui/pull/?env=e2",
       linkedAccounts: [
         "REFERENCE-ID-1",
         "REFERENCE-ID-2"
@@ -169,7 +169,7 @@ function provisionInitiation() {
     request.url = `https://${host}${epass}.aexp.com/payments/digital/v1/connect/provision/redirecturi`;
     request.body = {
       workflow_id: 'bpay_workflow_id',
-      partner_redirect_uri: `https://axpco.com/connect/?env=sandbox&flow=pull&partner=${partner}`,
+      partner_redirect_uri: `https://nikhilch07.github.io/amexconnectmockui/?env=sandbox&flow=pull&partner=${partner}`,
       partner_failure_uri: 'http://bpay.com.au/failure',
       partner_redirect_type: 'WEB',
       locale,
