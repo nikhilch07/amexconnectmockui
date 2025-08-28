@@ -198,10 +198,10 @@ function provisionInitiation() {
           if(getUIServiceName === 'hydra') {
             connectUIUpdatedUrl = redirectUrl.replace('https://amex-connect-qa.americanexpress.com/', connectUIHydraUrl);
           }
-            connectUIUpdatedUrl = connectUIUpdatedUrl.replace('amazon', `amazon/${getBackendServiceName}`).replace('?', '#');
+            connectUIUpdatedUrl = connectUIUpdatedUrl.replace('amazon', `amazon/${getBackendServiceName}`);
             localStorage.clear();
           // window.location.href = connectUIUpdatedUrl;
-          window.location.href = redirectUrl;
+          window.location.href = redirectUrl.replace('?', '#');
         } else {
           localStorage.setItem('bpay_workflow_id', res.headers['provisionid']);
           window.location.href = res.data.redirect_uri;
