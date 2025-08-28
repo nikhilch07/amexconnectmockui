@@ -198,7 +198,7 @@ function provisionInitiation() {
           if(getUIServiceName === 'hydra') {
             connectUIUpdatedUrl = redirectUrl.replace('https://amex-connect-qa.americanexpress.com/', connectUIHydraUrl);
           }
-            connectUIUpdatedUrl = connectUIUpdatedUrl.replace('amazon', `amazon/${getBackendServiceName}`);
+            connectUIUpdatedUrl = connectUIUpdatedUrl.replace('amazon', `amazon/${getBackendServiceName}`).replace('?', '#');
             localStorage.clear();
           // window.location.href = connectUIUpdatedUrl;
           window.location.href = redirectUrl;
