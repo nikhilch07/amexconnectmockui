@@ -200,9 +200,7 @@ function provisionInitiation() {
           }
             connectUIUpdatedUrl = connectUIUpdatedUrl.replace('amazon', `amazon/${getBackendServiceName}`);
             localStorage.clear();
-            const fragmentedUrl = redirectUrl.replace('?', '#');
-          // window.location.href = connectUIUpdatedUrl;
-          window.location.href = fragmentedUrl;
+          window.location.href = connectUIUpdatedUrl;
         } else {
           localStorage.setItem('bpay_workflow_id', res.headers['provisionid']);
           window.location.href = res.data.redirect_uri;
